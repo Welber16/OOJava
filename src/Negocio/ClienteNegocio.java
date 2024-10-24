@@ -36,14 +36,23 @@ public class ClienteNegocio {
 
     /**
      * Cadastra um novo cliente.
+     *
      * @param cliente Novo cliente que terá acesso a aplicação
      */
     //TODO Fazer a inclusão de cliente
+    public void cadastrarCliente(Produto cliente) {
+        bancoDados.adicionarCliente(cliente);
+    }
 
     /**
      * Exclui um cliente específico.
+     *
      * @param cpf CPF do cliente
      */
     //TODO Fazer a exclusão de cliente
+    public void excluirCliente(String cpf) {
+       Optional<Cliente> clienteOpt = consultar(cpf);
+        bancoDados.removerCliente(clienteOpt.get());
+    }
 
 }
